@@ -44,6 +44,7 @@ import TreeComponent from './tree/Tree';
 import UnknownComponent from './unknown/Unknown';
 import UrlComponent from './url/Url';
 import WellComponent from './well/Well';
+import coronaComponent from './corona/Corona';
 
 export default {
   address: AddressComponent,
@@ -93,4 +94,5 @@ export default {
   unknown: UnknownComponent,
   url: UrlComponent,
   well: WellComponent,
+  corona: coronaComponent,
 };
