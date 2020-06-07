@@ -2,7 +2,7 @@
   "_args": [
     [
       "font-awesome@4.7.0",
-      "C:\\netsa_formio.js"
+      "C:\\WorkSpace-GIT\\netsa_formiojs"
     ]
   ],
   "_development": true,
@@ -27,7 +27,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/font-awesome/-/font-awesome-4.7.0.tgz",
   "_spec": "4.7.0",
-  "_where": "C:\\netsa_formio.js",
+  "_where": "C:\\WorkSpace-GIT\\netsa_formiojs",
   "author": {
     "name": "Dave Gandy",
     "email": "dave@fontawesome.io",

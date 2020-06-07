@@ -1,6 +1,6 @@
 {
   "name": "netsa_formiojs",
-  "version": "0.1.4",
+  "version": "0.1.26",
   "description": "JavaScript powered Forms with JSON Form Builder",
   "main": "index.js",
   "types": "index.d.ts",
@@ -68,6 +68,7 @@
     "fast-json-patch": "^2.2.1",
     "fetch-ponyfill": "^6.1.0",
     "flatpickr": "^4.6.3",
+    "flatpickr-persian": "^4.6.3",
     "i18next": "^19.4.4",
     "idb": "^5.0.2",
     "ismobilejs": "^1.1.1",
@@ -86,7 +87,7 @@
     "uuid": "^8.0.0",
     "vanilla-picker": "^2.10.1",
     "vanilla-text-mask": "^5.1.1",
-    "inspire-tree": "^4.2.1",	 
+    "inspire-tree": "^4.2.1",
     "inspire-tree-dom": "^4.0.6"
   },
   "devDependencies": {

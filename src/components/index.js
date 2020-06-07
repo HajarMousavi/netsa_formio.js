@@ -45,6 +45,7 @@ import UnknownComponent from './unknown/Unknown';
 import UrlComponent from './url/Url';
 import WellComponent from './well/Well';
 import coronaComponent from './corona/Corona';
+import pdatetimeComponent from './pdatetime/PDateTime';
 
 export default {
   address: AddressComponent,
@@ -95,4 +96,5 @@ export default {
   url: UrlComponent,
   well: WellComponent,
   corona: coronaComponent,
+  pdatetime: pdatetimeComponent
 };
