@@ -1015,6 +1015,40 @@ div[data-oembed-url] {
 div[read-only="true"] .formio-component-textarea div[ref="input"] {
   white-space: pre-wrap; }
 
+[dir=rtl] {
+  text-align: right; }
+  [dir=rtl] .formio-component.formio-component-selectboxes > .form-group, [dir=rtl] .formio-component.formio-component-radio > .form-group {
+    text-align: right; }
+  [dir=rtl] .formio-component.formio-component-datetime .flatpickr-input {
+    text-align: right; }
+  [dir=rtl] .choices:after {
+    right: unset;
+    left: 11.5px; }
+  [dir=rtl] .choices .choices__list .choices__item {
+    text-align: right; }
+    [dir=rtl] .choices .choices__list .choices__item img {
+      float: right; }
+    [dir=rtl] .choices .choices__list .choices__item button.choices__button {
+      left: 0;
+      right: unset;
+      margin-right: unset;
+      margin-left: 25px;
+      overflow: hidden; }
+  [dir=rtl] .choices .choices__list.choices__list--dropdown > input.choices__input {
+    text-align: right; }
+  [dir=rtl] .choices .choices__list.choices__list--dropdown .choices__item--selectable {
+    padding-right: 10px;
+    padding-left: 0; }
+  [dir=rtl] .choices .choices__list.choices__list--multiple {
+    float: right; }
+    [dir=rtl] .choices .choices__list.choices__list--multiple .choices__item button.choices__button {
+      float: left;
+      margin: 0 8px 0 -4px;
+      padding-left: unset;
+      padding-right: 16px;
+      border-left: none;
+      border-right: 1px solid #008fa1; }
+
 .formbuilder {
   position: relative; }
 

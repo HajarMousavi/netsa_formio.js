@@ -1191,3 +1191,72 @@ div[read-only="true"] {
     }
   }
 }
+
+[dir=rtl] {
+  text-align: right;
+
+  .formio-component {
+    &.formio-component-selectboxes, &.formio-component-radio { 
+      > .form-group {
+        text-align: right;
+      }
+    }
+
+    &.formio-component-datetime {
+      .flatpickr-input {
+          text-align: right;
+      }
+    }
+  }
+
+  .choices {
+    &:after {
+      right: unset;
+      left: 11.5px;
+    }
+
+    .choices__list {
+      .choices__item {
+        text-align: right;
+
+        img {
+          float: right;
+        }
+
+        button.choices__button {
+          left: 0;
+          right: unset;
+          margin-right: unset;
+          margin-left: 25px;
+          overflow: hidden;
+        }
+      }
+
+      &.choices__list--dropdown {
+        > input.choices__input {
+          text-align: right;
+        }
+        .choices__item--selectable {
+          padding-right: 10px;
+          padding-left: 0;
+        }
+      }
+
+      &.choices__list--multiple {
+        float: right;
+
+        .choices__item {
+
+          button.choices__button {
+            float: left;
+            margin: 0 8px 0 -4px;
+            padding-left: unset;
+            padding-right: 16px;
+            border-left: none;
+            border-right: 1px solid #008fa1;
+          }
+        } 
+      }
+    }
+  }
+}
