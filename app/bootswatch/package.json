@@ -2,7 +2,7 @@
   "_args": [
     [
       "bootswatch@4.4.1",
-      "C:\\WorkSpace_Git\\netsa_formiojs"
+      "C:\\WorkSpace-GIT\\netsa_formiojs"
     ]
   ],
   "_development": true,
@@ -27,7 +27,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/bootswatch/-/bootswatch-4.4.1.tgz",
   "_spec": "4.4.1",
-  "_where": "C:\\WorkSpace_Git\\netsa_formiojs",
+  "_where": "C:\\WorkSpace-GIT\\netsa_formiojs",
   "author": {
     "name": "Thomas Park"
   },

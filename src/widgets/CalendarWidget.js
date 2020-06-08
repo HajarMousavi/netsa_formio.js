@@ -1,4 +1,4 @@
-import Flatpickr from 'flatpickr';
+import Flatpickr from 'flatpickr-persian';
 import InputWidget from './InputWidget';
 import {
   convertFormatToFlatpickr,
@@ -222,7 +222,7 @@ export default class CalendarWidget extends InputWidget {
         const dateMask = /\d{4}-\d{2}-\d{2}/g;
         const dates = item.match(dateMask);
         if (dates.length) {
-          return dates.length === 1 ?  item.match(dateMask)[0] : {
+          return dates.length === 1 ? item.match(dateMask)[0] : {
             from: item.match(dateMask)[0],
             to: item.match(dateMask)[1],
           };
