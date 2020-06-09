@@ -145,7 +145,7 @@ gulp.task('bootstrap', () => gulp.src('./node_modules/bootstrap/dist/**/*.*').pi
 gulp.task('bootswatch', () => gulp.src('./node_modules/bootswatch/**/*.*').pipe(gulp.dest('./app/bootswatch')));
 
 // Copy the version and dependencies into the distribution package.json file.
-gulp.task('package-version', function() {
+gulp.task('package-version', function () {
   const pkg = require('./package.json');
   return gulp.src([
     'src/package.json'

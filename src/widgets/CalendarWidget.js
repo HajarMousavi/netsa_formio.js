@@ -129,6 +129,12 @@ export default class CalendarWidget extends InputWidget {
       return Flatpickr.formatDate(date, format);
     };
 
+    //taghizade
+    // this.settings.locale = 'fa';
+    // this.settings.theme = 'rtl';
+    // window.Date = window.JDate;
+    ///
+
     if (this._input) {
       // Create a new flatpickr.
       this.calendar = new Flatpickr(this._input, this.settings);
