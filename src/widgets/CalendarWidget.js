@@ -1,4 +1,4 @@
-import Flatpickr from 'flatpickr-persian';
+import Flatpickr from 'persianflatpickr';
 import InputWidget from './InputWidget';
 import {
   convertFormatToFlatpickr,
@@ -128,12 +128,6 @@ export default class CalendarWidget extends InputWidget {
 
       return Flatpickr.formatDate(date, format);
     };
-
-    //taghizade
-    // this.settings.locale = 'fa';
-    // this.settings.theme = 'rtl';
-    // window.Date = window.JDate;
-    ///
 
     if (this._input) {
       // Create a new flatpickr.
