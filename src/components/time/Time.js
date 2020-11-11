@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'jalali-moment';
 import TextFieldComponent from '../textfield/TextField';
 
 const defaultDataFormat = 'HH:mm:ss';

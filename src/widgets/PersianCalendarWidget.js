@@ -17,7 +17,7 @@ import {
   shouldLoadZones,
   loadZones
 } from '../utils/utils';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import _ from 'lodash';
 const DEFAULT_FORMAT = 'yyyy-MM-dd hh:mm a';
 const ISO_8601_FORMAT = 'yyyy-MM-ddTHH:mm:ssZ';
@@ -62,7 +62,7 @@ export default class PersianCalendarWidget extends InputWidget {
     }
     else if (this.settings.time_24hr) {
       this.settings.format = this.settings.format.replace(/hh:mm a$/g, 'HH:mm');
-	}
+    }
     window.Date = jd.u;
     this.settings.locale = 'fa';
   }
@@ -158,9 +158,7 @@ export default class PersianCalendarWidget extends InputWidget {
   }
 
   get disableWeekends() {
-    return function(date) {
-      return (date.getDay() === 0 || date.getDay() === 6);
-    };
+    return (date) => (date.getDay() === 0 || date.getDay() === 6);
   }
 
   get disableWeekdays() {
@@ -267,7 +265,7 @@ export default class PersianCalendarWidget extends InputWidget {
    */
   getDateValue(date, format) {
     //return moment(date).format(convertFormatToMoment(format));
-	//console.log(date._date);
+    //console.log(date._date);
     return date._date;
   }
 
@@ -301,7 +299,10 @@ export default class PersianCalendarWidget extends InputWidget {
    * @param value
    */
   setValue(value) {
-    var date = moment(value).format(convertFormatToMoment(this.valueMomentFormat));
+    if (!value) return;
+    var format = convertFormatToMoment(this.valueMomentFormat);
+    var date = moment(value, format).locale('fa').format(format);
+    // var date = moment(value).locale('fa').format(convertFormatToMoment(this.valueMomentFormat));
     this.calendar.setDate(date);
   }
 

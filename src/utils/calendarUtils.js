@@ -1,11 +1,11 @@
-import moment from 'moment';
+import moment from 'jalali-moment';
 import _ from 'lodash';
 
 export const CALENDAR_ERROR_MESSAGES = {
   INVALID: 'You entered the Invalid Date',
   INCOMPLETE: 'You entered an incomplete date.',
   greater(date, format) {
-    return `The entered date is greater than ${ date.format(format)}`;
+    return `The entered date is greater than ${date.format(format)}`;
   },
   less(date, format) {
     return `The entered date is less than ${date.format(format)}`;
@@ -48,7 +48,7 @@ export function lessOrGreater(value, format, maxDate, minDate) {
   if (maxDate && value.isValid()) {
     const maxDateMoment = moment(maxDate, format);
 
-    if (value >  maxDateMoment) {
+    if (value > maxDateMoment) {
       message = CALENDAR_ERROR_MESSAGES.greater(maxDateMoment, format);
       result = false;
     }
@@ -96,7 +96,7 @@ export function checkInvalidDate(value, format, minDate, maxDate) {
     const timeIndex = _.findIndex(formatParts, (part, index) => part.length === 1 && index === formatParts.length - 1);
     const yearIndex = _.findIndex(formatParts, part => part.match(/yyyy/gi));
 
-    if (inputParts[yearIndex]/ 1000 < 1) {
+    if (inputParts[yearIndex] / 1000 < 1) {
       return buildResponse(CALENDAR_ERROR_MESSAGES.INVALID, false);
     }
 

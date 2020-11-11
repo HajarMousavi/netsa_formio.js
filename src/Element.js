@@ -3,7 +3,7 @@ import Formio from './Formio';
 import * as FormioUtils from './utils/utils';
 import i18next from 'i18next';
 import _ from 'lodash';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import maskInput from 'vanilla-text-mask';
 
 /**

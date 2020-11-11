@@ -14,7 +14,7 @@ import {
   shouldLoadZones,
   loadZones
 } from '../utils/utils';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import _ from 'lodash';
 const DEFAULT_FORMAT = 'yyyy-MM-dd hh:mm a';
 const ISO_8601_FORMAT = 'yyyy-MM-ddTHH:mm:ssZ';
@@ -154,9 +154,7 @@ export default class CalendarWidget extends InputWidget {
   }
 
   get disableWeekends() {
-    return function(date) {
-      return (date.getDay() === 0 || date.getDay() === 6);
-    };
+    return (date) => (date.getDay() === 0 || date.getDay() === 6);
   }
 
   get disableWeekdays() {

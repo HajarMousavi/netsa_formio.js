@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import Input from '../_classes/input/Input';
 import FormioUtils from '../../utils';
 import Widgets from '../../widgets';
@@ -123,7 +123,7 @@ export default class DateTimeComponent extends Input {
   }
 
   get widget() {
-    const widget = this.component.widget ? new Widgets[this.component.widget.type](this.component.widget, this.component): null;
+    const widget = this.component.widget ? new Widgets[this.component.widget.type](this.component.widget, this.component) : null;
     return widget;
   }
 

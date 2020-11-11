@@ -8,7 +8,7 @@ import {
   interpolate,
   convertFormatToMoment, getArrayFromComponentPath
 } from '../utils/utils';
-import moment from 'moment';
+import moment from 'jalali-moment';
 import NativePromise from 'native-promise-only';
 import fetchPonyfill from 'fetch-ponyfill';
 const { fetch, Headers, Request } = fetchPonyfill({
@@ -309,9 +309,9 @@ class ValidationChecker {
           return component.component.minSelectedCountMessage
             ? component.component.minSelectedCountMessage
             : component.t(component.errorMessage('minSelectedCount'), {
-                minCount: parseFloat(setting),
-                data: component.data
-              });
+              minCount: parseFloat(setting),
+              data: component.data
+            });
         },
         check(component, setting, value) {
           const min = parseFloat(setting);
@@ -319,7 +319,7 @@ class ValidationChecker {
           if (!min) {
             return true;
           }
-          const count = Object.keys(value).reduce((total, key) =>{
+          const count = Object.keys(value).reduce((total, key) => {
             if (value[key]) {
               total++;
             }
@@ -335,9 +335,9 @@ class ValidationChecker {
           return component.component.maxSelectedCountMessage
             ? component.component.maxSelectedCountMessage
             : component.t(component.errorMessage('maxSelectedCount'), {
-                minCount: parseFloat(setting),
-                data: component.data
-              });
+              minCount: parseFloat(setting),
+              data: component.data
+            });
         },
         check(component, setting, value) {
           const max = parseFloat(setting);
@@ -345,7 +345,7 @@ class ValidationChecker {
           if (!max) {
             return true;
           }
-          const count = Object.keys(value).reduce((total, key) =>{
+          const count = Object.keys(value).reduce((total, key) => {
             if (value[key]) {
               total++;
             }
@@ -794,8 +794,8 @@ class ValidationChecker {
       return false;
     }
 
-    const validator       = this.validators[validatorName];
-    const setting         = _.get(component.component, validator.key, null);
+    const validator = this.validators[validatorName];
+    const setting = _.get(component.component, validator.key, null);
     const resultOrPromise = this.checkValidator(component, validator, setting, value, data, index, row, async);
 
     const processResult = result => {
@@ -856,7 +856,7 @@ class ValidationChecker {
       }
     }
 
-    const validateCustom     = _.get(component, 'component.validate.custom');
+    const validateCustom = _.get(component, 'component.validate.custom');
     const customErrorMessage = _.get(component, 'component.validate.customMessage');
 
     // Run primary validators
