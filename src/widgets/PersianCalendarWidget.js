@@ -65,6 +65,7 @@ export default class PersianCalendarWidget extends InputWidget {
     }
     window.Date = jd.u;
     this.settings.locale = 'fa';
+	this.settings.language = 'fa';
   }
   /**
    * Load the timezones.
@@ -133,9 +134,12 @@ export default class PersianCalendarWidget extends InputWidget {
       return Flatpickr.formatDate(date, format);
     };
 
+	this.settings.language = 'fa';
+
     if (this._input) {
       // Create a new flatpickr.
       this.calendar = new Flatpickr(this._input, this.settings);
+
       this.calendar.altInput.addEventListener('input', (event) => {
         if (event.target.value === '') {
           this.settings.wasDefaultValueChanged = true;
@@ -256,6 +260,25 @@ export default class PersianCalendarWidget extends InputWidget {
     return _.get(this.settings, 'format', DEFAULT_FORMAT);
   }
 
+	convertDatePickerTimeToMySQLTime(dateVal) {
+		if (!dateVal) {
+			return '';
+		}
+
+        var year, hours, minutes, seconds;
+        var month = ['0' , ( dateVal.getMonth() + 1)].join('').slice(-2);
+        var day = ['0' , dateVal.getDate()].join('').slice(-2);
+        hours = ['0' , dateVal.getHours()].join('').slice(-2);
+        minutes = ['0' , dateVal.getMinutes()].join('').slice(-2);
+        seconds = ['0' , dateVal.getSeconds()].join('').slice(-3);
+
+        var mySQLDate = [dateVal.getFullYear(), month, day].join('-');
+        var mySQLTime = [hours, minutes, seconds].join(':');
+		mySQLTime += 'Z';
+        var res = [mySQLDate, mySQLTime].join('T');
+		return res;
+    }
+
   /**
    * Return the date value.
    *
@@ -264,9 +287,13 @@ export default class PersianCalendarWidget extends InputWidget {
    * @return {string}
    */
   getDateValue(date, format) {
-    //return moment(date).format(convertFormatToMoment(format));
-    //console.log(date._date);
-    return date._date;
+	//return moment(date).format(convertFormatToMoment(format));
+
+	//const newDate = moment(date, convertFormatToMoment(format)).locale('fa').format(convertFormatToMoment(format));
+	//return newDate;
+
+	var sqlDate = this.convertDatePickerTimeToMySQLTime(date._date);
+	return sqlDate;
   }
 
   /**
@@ -290,7 +317,8 @@ export default class PersianCalendarWidget extends InputWidget {
       return 'Invalid Date';
     }
 
-    return this.getDateValue(dates[0], this.valueFormat);
+    const data = this.getDateValue(dates[0], this.valueFormat);
+	return data;
   }
 
   /**
@@ -301,8 +329,14 @@ export default class PersianCalendarWidget extends InputWidget {
   setValue(value) {
     if (!value) return;
     var format = convertFormatToMoment(this.valueMomentFormat);
-    var date = moment(value, format).locale('fa').format(format);
-    // var date = moment(value).locale('fa').format(convertFormatToMoment(this.valueMomentFormat));
+
+	var mdate = moment(value, format);
+	if (!mdate._isValid) {
+		mdate = moment.utc(value).toISOString();
+	}
+
+    var date = moment(mdate, format).locale('fa').format(format);
+	//var sqlDate = this.convertDatePickerTimeToMySQLTime(date._date);
     this.calendar.setDate(date);
   }
 

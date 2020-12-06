@@ -3,6 +3,9 @@ import moment from 'jalali-moment';
 import Input from '../_classes/input/Input';
 import FormioUtils from '../../utils';
 import Widgets from '../../widgets';
+import Flatpickr from 'persianflatpickr';
+import Persian from 'persianflatpickr/dist/l10n/fa';
+import * as jd from 'persianflatpickr/dist/jdate.min.js';
 export default class DateTimeComponent extends Input {
   static schema(...extend) {
     return Input.schema({
@@ -152,8 +155,22 @@ export default class DateTimeComponent extends Input {
   }
 
   formatValue(input) {
-    const result = moment.utc(input).toISOString();
-    return result === 'Invalid date' ? input : result;
+	//const result = moment.utc(input).toISOString();
+	//return result === 'Invalid date' ? input : result;
+
+	if (input === '') {
+		return '';
+	}
+
+	const dateFormat = this.component.format || 'yyyy-MM-dd hh:mm a';
+	const format = FormioUtils.convertFormatToMoment(dateFormat);
+	var mdate = moment(input, format);
+	if (!mdate._isValid) {
+		mdate = moment.utc(input).toISOString();
+	}
+
+	const date = moment(mdate, format).locale('fa').format(format);
+	return date;
   }
 
   isEqual(valueA, valueB = this.dataValue) {
